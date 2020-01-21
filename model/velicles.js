@@ -12,6 +12,10 @@ const vehiclesSchema = new mongoose.Schema({
     license_no: { 
         type: String,
         required: true
+    }, 
+    verified: {
+        type: Boolean,
+        default: false
     }
 });
 

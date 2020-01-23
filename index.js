@@ -9,8 +9,8 @@ const adminAuth = require('./adminauth');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
 app.options('*', cors());
+app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
@@ -27,8 +27,9 @@ mongoose.connect(process.env.URL,
 
 app.use("/user", userRoute);
 app.use("/aduser", adminUser);
-app.use(auth.verifyUser);
-app.use(adminAuth.verifyUser);
+
+// app.use(auth.verifyUser);
+// app.use(adminAuth.verifyUser);
 
 
 app.use((err, req, res, next) => {

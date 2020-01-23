@@ -25,7 +25,7 @@ router.post('/register', (req, res, next)=>{
 });
 
 router.post('/loginadmin', (req, res, next) => {
-    adminUser.findOne({ email: req.body.email })
+    adminUser.findOne({ username: req.body.username })
         .then((user)=>{
             if(user == null) {
                 let err = new Error('User not found!');

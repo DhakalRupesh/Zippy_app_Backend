@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// require('mongoose-type-email');
 
 const userSchema = new mongoose.Schema({
     fname: {
@@ -15,10 +14,6 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    // gender: {
-    //     type: String,
-    //     required: true
-    // },
     email: {
         type: String,
         required: true,
@@ -33,8 +28,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     utype: {
-        type: Boolean,
-       
+        type: Boolean,    
     }
 });
 

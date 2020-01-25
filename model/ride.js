@@ -1,40 +1,42 @@
 const mongoose = require('mongoose');
 
 const RideSchema = new mongoose.Schema({
-    rider: [{
+    rider : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }],
+    },
     pickuplocationlat : {
-        type: mongoose.Decimal128,
+        type: Number,
         required: true
     },
     pickuplocationlon : {
-        type: mongoose.Decimal128,
+        type: Number,
         required: true
     },
-    // pickupTime : {
-    //     type: 
-    // },
+    pickupTime : {
+        type: Date,
+        required: true
+    },
     destinationlat : {
-        type: mongoose.Decimal128,
+        type: Number,
         required: true
     },
     destinationlon :{
-        type: mongoose.Decimal128,
+        type: Number,
         required: true
     },
-    // dropTime : {
-
-    // },
+    dropTime : {
+        type: Date,
+        required: true
+    },
     fare : {
-        type: mongoose.Decimal128,
+        type: Number,
         required: true
     },
-    driver : [{
+    driver : {
        type: mongoose.Schema.Types.ObjectId,
        ref: 'User' 
-    }]
+    }
 },{ timestamp: true });
 
 module.exports = mongoose.model('Ride', RideSchema);

@@ -35,7 +35,7 @@ router.route('/:id')
         Vehicle.findById(req.params.id)
         .then((vehicle)=>{
             if(vehicle == null) throw new Error("Vehicle not found")
-            res.json(categories)
+            res.json(vehicle)
         })
         .catch(next)
     })

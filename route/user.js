@@ -40,7 +40,8 @@ router.post('/login', (req, res, next) => {
                 err.status = 401;
                 return next(err);
             } else {
-                bcrypt.compare(req.body.password, user.password)
+                if(user.utype === true){
+                    bcrypt.compare(req.body.password, user.password)
                     .then((isMatch)=>{
                         if(!isMatch) {
                             let err = new Error('Username or password didnot match');
@@ -51,17 +52,48 @@ router.post('/login', (req, res, next) => {
                         res.json({ status: 'Login success!', token: token, utype: user.utype});
 
                     }).catch(next);
+                }else {
+                    res.json(("Verification pending"));
+                }
+                // bcrypt.compare(req.body.password, user.password)
+                //     .then((isMatch)=>{
+                //         if(!isMatch) {
+                //             let err = new Error('Username or password didnot match');
+                //             err.status = 401;
+                //             return next(err);
+                //         }
+                //         let token = jwt.sign({_id: user._id}, process.env.SECRET);
+                //         res.json({ status: 'Login success!', token: token, utype: user.utype});
+
+                //     }).catch(next);
             }
         }).catch(next);
 })
 router.get('/retriveme', auth.verifyUser, (req, res, next)=> {
-    res.json({_id: req.user._id, fname: req.user.fname, lname: req.user.lname, mobile: req.user.mobile, email: req.user.mobile, username: req.user.mobile, utype: req.user.utype})
+    res.json
+    ({
+        _id: req.user._id, 
+        fname: req.user.fname, 
+        lname: req.user.lname, 
+        mobile: req.user.mobile, 
+        email: req.user.mobile, 
+        username: req.user.username, 
+        utype: req.user.utype
+    })
 });
 
 router.put('/updateme', auth.verifyUser, (req, res, next)=>{
     user.findByIdAndUpdate(req.user._id,  { $set: req.body }, { new: true })
         .then((user)=>{
-            res.json({_id: user._id, fname: user.fname, lname: user.lname, mobile: user.mobile, email: user.mobile, username: user.mobile})
+            res.json
+            ({
+                _id: user._id, 
+                fname: user.fname, 
+                lname: user.lname, 
+                mobile: user.mobile, 
+                email: user.mobile, 
+                username: user.mobile
+            })
         }).catch(next);
 });
 

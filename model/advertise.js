@@ -1,9 +1,20 @@
 const mongoose = require('mongoose');
 
 const RideSchema = new mongoose.Schema({
-    customer : {
+    postedby : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    googdtype : {
+        type: String,
+        required: false
+    },
+    vehicleneed : {
+        type: String,
+        required: false
+    }, 
+    from : {
+        type: String,
     },
     // pickuplocationlat : {
     //     type: Number,
@@ -13,14 +24,14 @@ const RideSchema = new mongoose.Schema({
     //     type: Number,
     //     required: true
     // },
-    pickupLocation : {
-        type : String,
-        required: true
-    },
-    pickupTime : {
-        type: Date,
-        required: true
-    },
+    // pickupLocation : {
+    //     type : String,
+    //     required: true
+    // },
+    // pickupTime : {
+    //     type: Date,
+    //     required: true
+    // },
     // destinationlat : {
     //     type: Number,
     //     required: true
@@ -33,18 +44,14 @@ const RideSchema = new mongoose.Schema({
         type : String,
         required: true
     },
-    dropTime : {
-        type: Date,
-        required: true
-    },
     fare : {
         type: Number,
         required: true
     },
-    driver : {
-       type: mongoose.Schema.Types.ObjectId,
-       ref: 'User' 
+    negociable : {
+        type: String,
+        required: true
     }
 },{ timestamp: true });
 
-module.exports = mongoose.model('Ride', RideSchema);
+module.exports = mongoose.model('Advertise', AdvertiseSchema);

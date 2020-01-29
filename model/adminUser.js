@@ -17,7 +17,6 @@ const adminUserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     username: {
         type: String,
@@ -28,6 +27,10 @@ const adminUserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String,
+        required: false
+    }
 });
 
-module.exports = mongoose.model('loginAdmin', adminUserSchema)
+module.exports = mongoose.model('AdminUser', adminUserSchema)

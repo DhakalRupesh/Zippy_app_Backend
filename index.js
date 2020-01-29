@@ -4,7 +4,7 @@ const morgan = require('morgan');
 
 const userRoute = require("./route/user");
 const adminUser = require("./route/adminuser")
-const rideRoute = require("./route/ride");
+const rideRoute = require("./route/advertise");
 const vehicleRoute = require("./route/vehicle"); 
 
 const dotenv = require('dotenv').config();
@@ -34,12 +34,11 @@ console.log("Connected to Mongo database server.")
 
 app.use("/user", userRoute);
 app.use("/aduser", adminUser);
-app.use("/ride", rideRoute);
+app.use("/advertise", rideRoute);
 app.use("/vehicle", vehicleRoute);
 
 app.use(auth.verifyUser);
 app.use(adminAuth.verifyUser);
-
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

@@ -1,5 +1,5 @@
 const express = require('express');
-const Ride = require('../model/ride');
+const Ride = require('../model/advertise');
 const router = express.Router();
 const auth = require("../auth");
 

@@ -1,18 +1,18 @@
 const express = require('express');
-const Ride = require('../model/advertise');
+const Advertise = require('../model/advertise');
 const router = express.Router();
 const auth = require("../auth");
 
 router.route('/')
     .get((req, res, next)=>{
-        Ride.find({})
+        Advertise.find({})
         .then((ride)=>{
             res.json(ride);
         })
         .catch(next);
     })
     .post((req, res, next)=>{
-        Ride.create(req.body)
+        Advertise.create(req.body)
         .then((ride)=>{
             res.statusCodes = 201;
             res.json(ride);

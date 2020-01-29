@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const RideSchema = new mongoose.Schema({
-    postedby : {
+const AdvertiseSchema = new mongoose.Schema({
+    postedby : [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
+    }],
     googdtype : {
         type: String,
         required: false
@@ -51,6 +51,9 @@ const RideSchema = new mongoose.Schema({
     negociable : {
         type: String,
         required: true
+    },
+    status : {
+        type: Boolean
     }
 },{ timestamp: true });
 

@@ -5,7 +5,7 @@ const AdvertiseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    googdtype : {
+    goodstype : {
         type: String,
         required: false
     },
@@ -13,7 +13,7 @@ const AdvertiseSchema = new mongoose.Schema({
         type: String,
         required: false
     }, 
-    from : {
+    sendfrom : {
         type: String,
     },
     // pickuplocationlat : {
@@ -40,11 +40,11 @@ const AdvertiseSchema = new mongoose.Schema({
     //     type: Number,
     //     required: true
     // },
-    destination : {
+    destinationofdelivery : {
         type : String,
         required: true
     },
-    fare : {
+    priceofdelivery : {
         type: Number,
         required: true
     },
@@ -52,8 +52,9 @@ const AdvertiseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    status : {
-        type: Boolean
+    statusofdelivery : {
+        type: Boolean,
+        default: false
     }
 },{ timestamp: true });
 

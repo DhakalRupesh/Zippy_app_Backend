@@ -27,11 +27,18 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    userimage : {
+        type: String,
+        required: false
+    },
     password: {
         type: String,
         required: true
     },
-    utype: {
+    // enabled: {
+    //     type: String
+    // }
+    enabled: {
         type: Boolean,    
     }
 });

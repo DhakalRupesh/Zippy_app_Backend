@@ -52,6 +52,10 @@ const AdvertiseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    adimage : {
+        type: String,
+        required: false
+    },
     statusofdelivery : {
         type: Boolean,
         default: false

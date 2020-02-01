@@ -50,7 +50,7 @@ const AdvertiseSchema = new mongoose.Schema({
     },
     negociable : {
         type: String,
-        required: true
+        required: false
     },
     adimage : {
         type: String,

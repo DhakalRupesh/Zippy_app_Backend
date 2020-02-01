@@ -6,6 +6,7 @@ const userRoute = require("./route/user");
 const adminUser = require("./route/adminuser")
 const rideRoute = require("./route/advertise");
 const vehicleRoute = require("./route/vehicle"); 
+const uploadRoute = require("./route/upload");
 
 const dotenv = require('dotenv').config();
 const auth = require('./auth');
@@ -36,6 +37,7 @@ app.use("/user", userRoute);
 app.use("/aduser", adminUser);
 app.use("/advertise", rideRoute);
 app.use("/vehicle", vehicleRoute);
+app.use("/uploads", uploadRoute);
 
 app.use(auth.verifyUser);
 app.use(adminAuth.verifyUser);

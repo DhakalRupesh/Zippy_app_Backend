@@ -33,6 +33,6 @@ describe("user schema test", () => {
 
   it("Should be able to delete user", async () => {
     let user = await user.findOneAndDelete({ username: "aryan" });
-    expect(user.username).toBe("aryan");
+    expect(user.username).toBe("aryan ");
   });
 });

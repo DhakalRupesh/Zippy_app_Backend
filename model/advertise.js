@@ -52,7 +52,7 @@ const AdvertiseSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    adimage : {
+    userImage : {
         type: String,
         required: false
     },

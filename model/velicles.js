@@ -6,19 +6,19 @@ const VehicleSchema = new mongoose.Schema({
         ref: 'User'
     },
     brandName: {
-        type: String,
-        required: true,
+        type: String
     },
     vehicleType: {
-
+        type: String
     },
     vehicle_no: {
-        type: String,
-        required: true
+        type: String
     },
     license_no: { 
-        type: String,
-        required: true
+        type: String
+    }, 
+    license_Image :{
+        type: String
     }, 
     verified: {
         type: Boolean,

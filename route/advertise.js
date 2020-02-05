@@ -12,7 +12,7 @@ router.route('/')
         .catch(next);
     })
     .post((req, res, next)=>{
-        Advertise.create(req.body)
+        Advertise.create(req.)
         .then((ride)=>{
             res.statusCodes = 201;
             res.json(ride);

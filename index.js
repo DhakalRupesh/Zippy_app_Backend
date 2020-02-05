@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const userRoute = require("./route/user");
 const adminUser = require("./route/adminuser")
 const rideRoute = require("./route/advertise");
-const vehicleRoute = require("./route/vehicle"); 
+const vehicleRoute = require("./route/vehicles"); 
 const uploadRoute = require("./route/upload");
 
 const dotenv = require('dotenv').config();
@@ -36,7 +36,7 @@ console.log("Connected to Mongo database server.")
 app.use("/user", userRoute);
 app.use("/aduser", adminUser);
 app.use("/advertise", rideRoute);
-app.use("/vehicle", vehicleRoute);
+app.use("/vehicles", vehicleRoute);
 app.use("/uploads", uploadRoute);
 
 app.use(auth.verifyUser);

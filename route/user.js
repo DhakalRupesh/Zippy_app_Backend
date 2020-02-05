@@ -76,7 +76,7 @@ router.get('/retriveme', auth.verifyUser, (req, res, next)=> {
         fname: req.user.fname, 
         lname: req.user.lname, 
         mobile: req.user.mobile, 
-        email: req.user.mobile, 
+        email: req.user.email, 
         username: req.user.username, 
         utype: req.user.utype
     })
@@ -91,8 +91,9 @@ router.put('/updateme', auth.verifyUser, (req, res, next)=>{
                 fname: user.fname, 
                 lname: user.lname, 
                 mobile: user.mobile, 
-                email: user.mobile, 
-                username: user.mobile
+                email: user.email, 
+                username: user.username,
+                userimage: user.userimage
             })
         }).catch(next);
 });

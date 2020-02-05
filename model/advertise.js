@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const AdvertiseSchema = new mongoose.Schema({
-    postedby : [{
+    postedby : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }],
+    },
     goodstype : {
         type: String,
         required: false
@@ -45,7 +45,7 @@ const AdvertiseSchema = new mongoose.Schema({
         required: true
     },
     priceofdelivery : {
-        type: Number,
+        type: String,
         required: true
     },
     negociable : {

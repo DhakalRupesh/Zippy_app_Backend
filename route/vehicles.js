@@ -3,32 +3,28 @@ const Vehicle = require('../model/velicles');
 const router = express.Router();
 
 router.route('/')
-    .get((res, next)=>{
-        Vehicle.find({})
-            .then((vehicle)=>{
-                res.json(vehicle);
-            })
-            .catch(next);
+    .get((req, res, next)=>{
+        Vehicle.find({}).populate({
+            path: "User"
+        })
+        .then((ride)=>{
+            res.json(ride);
+        })
+        .catch(next);
     })
     .post((req, res, next)=>{
         Vehicle.create(req.body)
-            .then((vehicle)=>{
-                res.statusCode = 201;
-                res.json(vehicle);
-            })
-            .catch(next);
+        .then((ride)=>{
+            res.statusCodes = 201;
+            res.json(ride);
+        })
+        .catch(next);
     })
-    .put((req, res)=>{
+    .put((req, res) => {
         res.statusCode = 405;
-        res.json({ message: "Method not allowed" });
+        res.json({message : "This method is not allowed"});
     })
-    // .delete(auth.verifyAdmin, (req, res, next) => {
-    //     Vehicle.deleteMany({})
-    //         .then((reply) => {
-    //             res.json(reply);
-    //         })
-    //         .catch(next)
-    // });
+
 
 router.route('/:id')
     .get((req, res, next)=>{

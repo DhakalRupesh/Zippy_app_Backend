@@ -5,13 +5,17 @@ const AdvertiseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    contactno: {
+        type: String
+    },
+    contactemail: {
+        type: String
+    },
     goodstype : {
         type: String,
-        required: false
     },
     vehicleneed : {
         type: String,
-        required: false
     }, 
     sendfrom : {
         type: String,
@@ -26,11 +30,9 @@ const AdvertiseSchema = new mongoose.Schema({
     },
     negociable : {
         type: String,
-        required: false
     },
     ad_image : {
         type: String,
-        required: false
     },
     statusofdelivery : {
         type: Boolean,

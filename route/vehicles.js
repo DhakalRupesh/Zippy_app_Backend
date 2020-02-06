@@ -13,7 +13,7 @@ router.route('/')
         .catch(next);
     })
     .post((req, res, next)=>{
-        Vehicle.create(req.body)
+        Vehicle.create(req.body, req.body.license_Image)
         .then((ride)=>{
             res.statusCodes = 201;
             res.json(ride);

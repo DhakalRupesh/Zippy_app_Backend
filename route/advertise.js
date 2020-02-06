@@ -5,14 +5,23 @@ const auth = require("../auth");
 
 router.route('/')
     .get((req, res, next)=>{
-        Advertise.find({})
+        // if(req.authenticated === true) {
+        //     Advertise.find({}).then((advertise)=>res.json(advertise)).catch(next); 
+        //   } else {
+            
+        //   }
+        Advertise.find({})   
+        // .populate({
+        //     path: 'postedby',
+        //     select: 'username'
+        // })
         .then((advertise)=>{
             res.json(advertise);
         })
         .catch(next);
     })
     .post((req, res, next)=>{
-        Advertise.create(req.body)
+        Advertise.create(req.body, req.body.ad_image)
         .then((advertise)=>{
             res.statusCodes = 201;
             res.json(advertise);

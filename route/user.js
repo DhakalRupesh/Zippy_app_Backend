@@ -83,7 +83,7 @@ router.get('/retriveme', auth.verifyUser, (req, res, next)=> {
 });
 
 router.put('/updateme', auth.verifyUser, (req, res, next)=>{
-    user.findByIdAndUpdate(req.user._id,  { $set: req.body }, { new: true })
+    user.findByIdAndUpdate(req.user._id,  { $set: req.body }, { $set: req.body.userimage }, { new: true })
         .then((user)=>{
             res.json
             ({

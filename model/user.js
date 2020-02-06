@@ -25,19 +25,14 @@ const userSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: false
     },
     userimage : {
         type: String,
-        required: false
     },
     password: {
         type: String,
         required: true
     },
-    // enabled: {
-    //     type: String
-    // }
     enabled: {
         type: Boolean,    
     }

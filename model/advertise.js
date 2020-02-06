@@ -16,30 +16,6 @@ const AdvertiseSchema = new mongoose.Schema({
     sendfrom : {
         type: String,
     },
-    // pickuplocationlat : {
-    //     type: Number,
-    //     required: true
-    // },
-    // pickuplocationlon : {
-    //     type: Number,
-    //     required: true
-    // },
-    // pickupLocation : {
-    //     type : String,
-    //     required: true
-    // },
-    // pickupTime : {
-    //     type: Date,
-    //     required: true
-    // },
-    // destinationlat : {
-    //     type: Number,
-    //     required: true
-    // },
-    // destinationlon :{
-    //     type: Number,
-    //     required: true
-    // },
     destinationofdelivery : {
         type : String,
         required: true

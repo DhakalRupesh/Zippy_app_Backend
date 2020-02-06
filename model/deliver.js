@@ -5,7 +5,7 @@ const DevliverSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    deliveredBy : {
+    acceptedby : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }

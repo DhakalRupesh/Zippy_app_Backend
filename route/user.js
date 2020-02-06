@@ -7,8 +7,8 @@ const auth = require('../auth');
 
 router.get('/users', (req, res, next)=>{
     user.find({})
-    .then((heros)=>{
-        res.json(heros);
+    .then((user)=>{
+        res.json(user);
     }).catch(next);
 });
 

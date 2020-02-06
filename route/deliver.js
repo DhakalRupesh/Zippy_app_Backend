@@ -5,16 +5,16 @@ const router = express.Router();
 router.route('/')
     .get((req, res, next)=>{
         Deliver.find({})
-        .then((ride)=>{
-            res.json(ride);
+        .then((deliver)=>{
+            res.json(deliver);
         })
         .catch(next);
     })
     .post((req, res, next)=>{
         Deliver.create(req.body)
-        .then((ride)=>{
+        .then((deliver)=>{
             res.statusCodes = 201;
-            res.json(ride);
+            res.json(deliver);
         })
         .catch(next);
     })

@@ -21,7 +21,7 @@ router.route('/')
         .catch(next);
     })
     .post((req, res, next)=>{
-        Advertise.create(req.body, req.body.ad_image)
+        Advertise.create(req.body)
         .then((advertise)=>{
             res.statusCodes = 201;
             res.json(advertise);

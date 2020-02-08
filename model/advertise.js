@@ -5,6 +5,9 @@ const AdvertiseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    pstedbyName:{
+        type: String
+    },
     contactno: {
         type: String
     },
@@ -18,7 +21,7 @@ const AdvertiseSchema = new mongoose.Schema({
         type: String,
     }, 
     sendfrom : {
-        type: String,
+        type: String
     },
     destinationofdelivery : {
         type : String,
@@ -29,10 +32,10 @@ const AdvertiseSchema = new mongoose.Schema({
         required: true
     },
     negociable : {
-        type: String,
+        type: String
     },
     ad_image : {
-        type: String,
+        type: String
     },
     statusofdelivery : {
         type: Boolean,

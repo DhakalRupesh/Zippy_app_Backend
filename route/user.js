@@ -23,6 +23,8 @@ router.post('/register', (req, res, next)=>{
             mobile: req.body.mobile,
             email: req.body.email,
             username: req.body.username,
+            description: req.body.description,
+            userimage: req.body.userimage,
             password: hash,
             utype: req.body.utype
         }).then((user)=>{
@@ -78,12 +80,14 @@ router.get('/retriveme', auth.verifyUser, (req, res, next)=> {
         mobile: req.user.mobile, 
         email: req.user.email, 
         username: req.user.username, 
+        description: req.user.description,
+        userimage: user.userimage,
         utype: req.user.utype
     })
 });
 
 router.put('/updateme', auth.verifyUser, (req, res, next)=>{
-    user.findByIdAndUpdate(req.user._id,  { $set: req.body }, { $set: req.body.userimage }, { new: true })
+    user.findByIdAndUpdate(req.user._id,  { $set: req.body }, { new: true })
         .then((user)=>{
             res.json
             ({
@@ -93,6 +97,7 @@ router.put('/updateme', auth.verifyUser, (req, res, next)=>{
                 mobile: user.mobile, 
                 email: user.email, 
                 username: user.username,
+                description: user.description,
                 userimage: user.userimage
             })
         }).catch(next);

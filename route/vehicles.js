@@ -4,9 +4,7 @@ const router = express.Router();
 
 router.route('/')
     .get((req, res, next)=>{
-        Vehicle.find({}).populate({
-            path: "User"
-        })
+        Vehicle.find({})
         .then((ride)=>{
             res.json(ride);
         })

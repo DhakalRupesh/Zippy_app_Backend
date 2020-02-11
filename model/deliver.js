@@ -5,13 +5,7 @@ const DevliverSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    acceptedby : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    deliveredItems: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Advertise'
-    }
+    
 },{ timestamp: true })
-module.exports = mongoose.model('Advertise', DevliverSchema);
+
+module.exports = mongoose.model('Deliver', DevliverSchema);

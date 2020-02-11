@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    vehicleOfUser : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Vehicle"
+    },
     enabled: {
         type: Boolean,    
     }

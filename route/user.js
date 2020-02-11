@@ -72,17 +72,9 @@ router.post('/login', (req, res, next) => {
         }).catch(next);
 })
 router.get('/retriveme', auth.verifyUser, (req, res, next)=> {
-    res.json
-    ({
-        _id: req.user._id, 
-        fname: req.user.fname, 
-        lname: req.user.lname, 
-        mobile: req.user.mobile, 
-        email: req.user.email, 
-        username: req.user.username, 
-        description: req.user.description,
-        userimage: user.userimage,
-        utype: req.user.utype
+    
+    user.findById(req.user._id).populate({path:'vehicleOfUser'}).then(user=>{
+        res.json(user);
     })
 });
 

@@ -5,15 +5,22 @@ const AdvertiseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    pstedbyName:{
-        type: String
+    acceptedby : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
-    contactno: {
-        type: String
-    },
-    contactemail: {
-        type: String
-    },
+    // pstedbyName : {
+    //     type: String
+    // },
+    // pbyImage: {
+    //     type: String
+    // },
+    // contactno: {
+    //     type: String
+    // },
+    // contactemail: {
+    //     type: String
+    // },
     goodstype : {
         type: String,
     },
@@ -36,7 +43,7 @@ const AdvertiseSchema = new mongoose.Schema({
     },
     ad_image : {
         type: String
-    },
+    },   
     statusofdelivery : {
         type: Boolean,
         default: false

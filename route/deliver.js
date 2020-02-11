@@ -23,4 +23,13 @@ router.route('/')
         res.json({message : "This method is not allowed"});
     })
 
+router.route('/:id')
+.get((req, res, next)=>{
+    Deliver.findOne({ postedby: req.user._id })
+    .then((deliver) => {
+        if (deliver == null) throw new Error("delivery not found!")
+        res.json(deliver);
+    }).catch(next);
+})
+
 module.exports = router;

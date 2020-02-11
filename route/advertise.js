@@ -11,10 +11,15 @@ router.route('/')
             
         //   }
         Advertise.find({})   
-        // .populate({
-        //     path: 'postedby',
-        //     select: 'username'
-        // })
+        .populate({
+            path: 'postedby'
+        })
+        .populate({path: 'postedby',
+            populate: {
+                path:'vehicleOfUser',
+                model:'Vehicle'
+            }
+            })
         .then((advertise)=>{
             res.json(advertise);
         })
@@ -46,7 +51,7 @@ router.route('/:id')
         res.json({ message: "Method not allowed" });
     })
     .put((req, res, next) => {
-        Advertise.findOneAndUpdate({ postedby: req.user._id, _id: req.params.id }, { $set: req.body }, { new: true })
+        Advertise.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true })
             .then((reply) => {
                 if (reply == null) throw new Error("Task not found!");
                 res.json(reply);

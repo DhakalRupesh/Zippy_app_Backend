@@ -4,7 +4,7 @@ const morgan = require('morgan');
 
 const userRoute = require("./route/user");
 const adminUser = require("./route/adminuser")
-const rideRoute = require("./route/advertise");
+const advertiseRoute = require("./route/advertise");
 const vehicleRoute = require("./route/vehicles"); 
 const uploadRoute = require("./route/upload");
 const deliverRoute = require("./route/deliver");
@@ -36,7 +36,7 @@ console.log("Connected to Mongo database server.")
 
 app.use("/user", userRoute);
 app.use("/aduser", adminUser);
-app.use("/advertise", rideRoute);
+app.use("/advertise", advertiseRoute);
 app.use("/vehicles", vehicleRoute);
 app.use("/uploads", uploadRoute);
 app.use("/deliver", deliverRoute);

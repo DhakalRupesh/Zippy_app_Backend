@@ -14,7 +14,7 @@ router.route('/')
         Vehicle.create(req.body, req.body.license_Image)
         .then((ride)=>{
             res.statusCodes = 201;
-            res.json(ride);
+            res.json(ride._id);
         })
         .catch(next);
     })

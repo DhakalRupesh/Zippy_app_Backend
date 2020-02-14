@@ -38,9 +38,29 @@ router.route('/')
         res.json({message : "This method is not allowed"});
     })
 
+router.route('/myAdvertise')
+.get(auth.verifyUser,(req,res,next)=>{
+    Advertise.find({postedby:req.user._id})
+        .populate({path:'postedby'})
+        .populate({path:'acceptedby'})
+        .populate({path:'postedby',
+                populate:{
+                    path:'vehicleOfUser',
+                    model:'Vehicle'
+                }})
+        .populate({path:'acceptedby',
+                populate:{
+                    path:'vehicleOfUser',
+                    model:'Vehicle'
+                }})
+    .then(adv=>{
+        res.json(adv);
+    })
+})
+
 router.route('/:id')
     .get((req, res, next)=>{
-        Advertise.findOne({ postedby: req.user._id })
+        Advertise.findOne({ _id: req.params.id })
         .then((advertise) => {
             if (advertise == null) throw new Error("advertise not found!")
             res.json(advertise);
@@ -64,4 +84,14 @@ router.route('/:id')
                 res.json(advertise);
             }).catch(next);
     });
+
+// router.route("/myAdvertise") 
+//     .get(auth.verifyUser, (req, res, next) => {
+//         Advertise.find({ postedby: req.user._id })
+//         .populate({'path':'postedby'})
+//         .then((advertise)=>{
+//             if(advertise == null) throw new Error("No advertisemant found");
+//             res.json(advertise);
+//         })
+//     })
 module.exports = router;

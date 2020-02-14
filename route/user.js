@@ -90,6 +90,7 @@ router.put('/updateme', auth.verifyUser, (req, res, next)=>{
                 email: user.email, 
                 username: user.username,
                 description: user.description,
+                vehicleOfUser: user.vehicleOfUser,
                 userimage: user.userimage
             })
         }).catch(next);

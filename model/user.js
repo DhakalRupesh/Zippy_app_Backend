@@ -3,24 +3,21 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     fname: {
         type: String,
-        required: true
+        
     },
     lname: {
         type: String,
-        required: true
+        
     },
     mobile: {
         type: String,
-        required: true,
         unique: true
     },
     email: {
         type: String,
-        required: true,
     },
     username: {
         type: String,
-        required: true,
         unique: true
     },
     description: {
@@ -31,7 +28,6 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
     },
     vehicleOfUser : {
         type: mongoose.Schema.Types.ObjectId,

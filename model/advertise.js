@@ -32,11 +32,9 @@ const AdvertiseSchema = new mongoose.Schema({
     },
     destinationofdelivery : {
         type : String,
-        required: true
     },
     priceofdelivery : {
         type: String,
-        required: true
     },
     negociable : {
         type: String
